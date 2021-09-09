@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/token.mp3-6d7d1d86030549053e769dac5d174e7a.mp3str"
+
+[deps]
+
+source_file="res://assets/star/token.mp3"
+dest_files=[ "res://.import/token.mp3-6d7d1d86030549053e769dac5d174e7a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
