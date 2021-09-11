@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="LevelTestCollision" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 1200, 30 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -1398.09, 6, -1169.61, 7, -844.435, 6, -488.053, 7, -208.039, 6, 60.662, 7, 360.475, 6, 598.063, 7, 884.078, 6, 1142.59, 7, 1366.84, 6, 1633.81, 7, 2012.91, 6, 2290.55, 7, 2594.89, 6, 2925.93, 7, 3278.33, 6, 3604.03, 7, 3935.07, 6, 4303.49, 7, 4281.1, 327.591, -1412.35, 320.04 )

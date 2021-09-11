@@ -89,7 +89,6 @@ visible = false
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -0.0764275, -0.630676 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 1 )
@@ -109,5 +108,5 @@ script = ExtResource( 4 )
 samples = [ ExtResource( 3 ) ]
 random_pitch_range = 0.2
 
-[connection signal="body_entered" from="." to="." method="_on_boost_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_boost_area_entered"]
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_RechargeTimer_timeout"]

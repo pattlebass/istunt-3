@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/checkpoint.mp3-83fdc75bb8a8c8f78d84e7d000d1c37a.mp3str"
+
+[deps]
+
+source_file="res://assets/checkpoint/checkpoint.mp3"
+dest_files=[ "res://.import/checkpoint.mp3-83fdc75bb8a8c8f78d84e7d000d1c37a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

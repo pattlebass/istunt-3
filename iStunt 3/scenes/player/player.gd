@@ -5,13 +5,13 @@ extends RigidBody2D
 const TURNING_SPEED = 20
 const MAX_TURNING_VELOCITY = 8
 const ACCELERATION = 5
-const MAX_SPEED = 7000
+const MAX_SPEED = 500 #7000
 const JUMP_FORCE = 200
 
 var direction = 1
 
 onready var ray = $RayCast2D
-onready var jump_stream = $AudioStreams/JumpStream
+onready var jump_sfx = $AudioStreams/JumpStream
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("switch_direction"):
@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	#print(linear_velocity)
 	# Movement
 	var desired_angular_vel = angular_velocity
 	if !ray.is_colliding(): # If not on ground
@@ -47,4 +48,6 @@ func _physics_process(delta: float) -> void:
 		# Jump
 		if Input.is_action_just_pressed("jump"):
 			apply_central_impulse(Vector2(0, -JUMP_FORCE).rotated(rotation))
-			jump_stream.play()
+			jump_sfx.play()
+		
+

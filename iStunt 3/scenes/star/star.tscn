@@ -59,5 +59,5 @@ stream = ExtResource( 2 )
 autoplay = "idle"
 anims/idle = SubResource( 2 )
 
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]
+[connection signal="area_entered" from="DetectionArea" to="." method="_on_DetectionArea_area_entered"]
+[connection signal="area_exited" from="DetectionArea" to="." method="_on_DetectionArea_area_exited"]
