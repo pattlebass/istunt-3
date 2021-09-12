@@ -5,18 +5,20 @@ extends RigidBody2D
 const TURNING_SPEED = 20
 const MAX_TURNING_VELOCITY = 8
 const ACCELERATION = 5
-const MAX_SPEED = 500 #7000
+const MAX_SPEED = 7000
 const JUMP_FORCE = 200
 
 var direction = 1
+var reset = false
+
 
 onready var ray = $RayCast2D
 onready var jump_sfx = $AudioStreams/JumpStream
 
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("switch_direction"):
 		direction *= -1
-
 
 func _physics_process(delta: float) -> void:
 	#print(linear_velocity)
@@ -49,5 +51,12 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump"):
 			apply_central_impulse(Vector2(0, -JUMP_FORCE).rotated(rotation))
 			jump_sfx.play()
-		
 
+
+func _integrate_forces(state: Physics2DDirectBodyState) -> void:
+	if reset:
+		set_deferred("mode", MODE_STATIC)
+		set_deferred("global_position", Vector2.ZERO)
+		set_deferred("rotation_degrees", 0)
+		set_deferred("reset", false)
+		set_deferred("mode", MODE_RIGID)

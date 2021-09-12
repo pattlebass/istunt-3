@@ -6,6 +6,8 @@ var target
 
 var speed := Player.MAX_SPEED * 0.1
 
+signal star_collected
+
 
 func _physics_process(delta: float) -> void:
 	if target:
@@ -19,11 +21,13 @@ func _physics_process(delta: float) -> void:
 
 
 func destroy():
-	target = null
-	hide()
-	sfx.play()
-	yield(sfx, "finished")
-	queue_free()
+	if target:
+		target = null
+		hide()
+		sfx.play()
+		emit_signal("star_collected")
+		yield(sfx, "finished")
+		queue_free()
 
 
 func _on_DetectionArea_area_entered(area: Area2D) -> void:

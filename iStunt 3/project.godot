@@ -182,6 +182,10 @@ boot_splash/image="res://assets/icons/icon.png"
 boot_splash/fullsize=false
 config/icon="res://assets/icons/icon.png"
 
+[autoload]
+
+Variables="*res://variables.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/randomAudioStreamPlayer/plugin.cfg", "res://addons/rmsmartshape/plugin.cfg" )

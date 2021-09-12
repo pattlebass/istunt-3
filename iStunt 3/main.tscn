@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/LevelDebug.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/ui/StarHBox.gd" type="Script" id=3]
+[ext_resource path="res://assets/star/star.png" type="Texture" id=4]
+[ext_resource path="res://scenes/ui/ButtonsHBox.gd" type="Script" id=5]
 
 [node name="main" type="Node2D"]
 
@@ -10,8 +13,75 @@ position = Vector2( 283.685, 356.382 )
 scale = Vector2( 1.43328, 1.8568 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 0 )
 
 [node name="Level" type="Node2D" parent="."]
 
 [node name="LevelDebug" parent="Level" instance=ExtResource( 2 )]
+
+[node name="UI" type="CanvasLayer" parent="."]
+pause_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+margin_right = 1023.0
+margin_bottom = 46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="UI/HBoxContainer"]
+margin_right = 102.0
+margin_bottom = 46.0
+script = ExtResource( 5 )
+
+[node name="PauseButton" type="Button" parent="UI/HBoxContainer/ButtonsHBox"]
+margin_right = 50.0
+margin_bottom = 46.0
+toggle_mode = true
+text = "Pause"
+
+[node name="ResetButton" type="Button" parent="UI/HBoxContainer/ButtonsHBox"]
+margin_left = 54.0
+margin_right = 102.0
+margin_bottom = 46.0
+text = "Reset"
+
+[node name="Control" type="Control" parent="UI/HBoxContainer"]
+margin_left = 106.0
+margin_right = 528.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+
+[node name="StarHBox" type="HBoxContainer" parent="UI/HBoxContainer"]
+margin_left = 532.0
+margin_right = 597.0
+margin_bottom = 32.0
+size_flags_vertical = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/StarHBox"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 4 )
+expand = true
+
+[node name="Label" type="Label" parent="UI/HBoxContainer/StarHBox"]
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 65.0
+margin_bottom = 23.0
+text = "0/10"
+align = 1
+valign = 1
+
+[node name="Control2" type="Control" parent="UI/HBoxContainer"]
+margin_left = 601.0
+margin_right = 1023.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+
+[connection signal="toggled" from="UI/HBoxContainer/ButtonsHBox/PauseButton" to="UI/HBoxContainer/ButtonsHBox" method="_on_PauseButton_toggled"]
+[connection signal="pressed" from="UI/HBoxContainer/ButtonsHBox/ResetButton" to="UI/HBoxContainer/ButtonsHBox" method="_on_ResetButton_pressed"]

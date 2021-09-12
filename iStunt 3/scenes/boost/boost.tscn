@@ -82,6 +82,7 @@ tracks/1/keys = {
 }
 
 [node name="boost" type="Area2D"]
+rotation = 3.14159
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -107,6 +108,16 @@ one_shot = true
 script = ExtResource( 4 )
 samples = [ ExtResource( 3 ) ]
 random_pitch_range = 0.2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
+enabled = true
+cast_to = Vector2( 0, 64 )
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+visible = false
+enabled = true
+cast_to = Vector2( 0, -64 )
 
 [connection signal="area_entered" from="." to="." method="_on_boost_area_entered"]
 [connection signal="timeout" from="RechargeTimer" to="." method="_on_RechargeTimer_timeout"]
