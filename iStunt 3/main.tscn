@@ -8,10 +8,6 @@
 
 [node name="main" type="Node2D"]
 
-[node name="bg" type="Sprite" parent="."]
-position = Vector2( 283.685, 356.382 )
-scale = Vector2( 1.43328, 1.8568 )
-
 [node name="player" parent="." instance=ExtResource( 1 )]
 
 [node name="Level" type="Node2D" parent="."]

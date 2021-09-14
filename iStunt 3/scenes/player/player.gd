@@ -19,6 +19,13 @@ onready var jump_sfx = $AudioStreams/JumpStream
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("switch_direction"):
 		direction *= -1
+	if Input.is_action_just_pressed("die"):
+		var ragdoll = preload("res://scenes/player/PlayerBodyRigid.tscn").instance()
+		ragdoll.global_position = $PlayerBodySprites.global_position
+		ragdoll.rotation = rotation
+		$PlayerBodySprites.queue_free()
+		Variables.main.add_child(ragdoll)
+
 
 func _physics_process(delta: float) -> void:
 	#print(linear_velocity)

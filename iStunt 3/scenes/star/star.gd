@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var sfx = $DetectionArea/ding
+onready var collision = $DetectionArea/CollisionShape2D
 
 var target
 
@@ -26,6 +27,7 @@ func destroy():
 		hide()
 		sfx.play()
 		emit_signal("star_collected")
+		collision.set_deferred("disabled", true)
 		yield(sfx, "finished")
 		queue_free()
 
